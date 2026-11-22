@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --border: 217 30% 90%;
+  --input: 217 30% 88%;
+  --muted: 220 43% 97%;
+  --muted-foreground: 215 20% 42%;
+  --brand-navy: 220 67% 22%;
+  --brand-navy-deep: 220 71% 15%;
+  --brand-gold: 43 100% 55%;
+  --brand-blue: 203 94% 42%;
+  --brand-surface: 220 43% 97%;
+  --radius: 0.85rem;
+  --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+  }
+
+  ::selection {
+    background: hsl(var(--brand-gold));
+    color: hsl(var(--brand-navy));
+  }
+}
+
+.shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.eyebrow {
+  letter-spacing: 0.16em;
+  color: hsl(var(--brand-blue));
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.display-face {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.surface {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background: #ffffff;
+}
+
+.surface-hover {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.surface-hover:hover {
+  border-color: rgba(18, 43, 92, 0.22);
+  transform: translateY(-2px);
+}
+
+.gold-rule {
+  background: linear-gradient(90deg, rgba(255, 190, 27, 0), #FFBE1B, rgba(255, 190, 27, 0));
+  height: 1px;
+}
+
+.prose-site {
+  color: hsl(var(--foreground));
+  line-height: 1.75;
+}
+
+.prose-site h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: hsl(var(--brand-navy));
+}
+
+.prose-site p {
+  margin-bottom: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .surface-hover,
+  .surface-hover:hover {
+    transition: none;
+    transform: none;
+  }
+}
